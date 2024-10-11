@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/board', [BoardConrtroller::class, 'index']);
+Route::get('/board/{board}', [BoardConrtroller::class, 'detail']);

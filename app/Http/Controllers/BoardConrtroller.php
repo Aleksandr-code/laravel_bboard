@@ -18,4 +18,11 @@ class BoardConrtroller extends Controller
         }
         return response($content)->header('Content-Type', 'text/plain');
     }
+
+    public function detail(Board $board){
+        $s = $board->title . "\r\n\r\n";
+        $s .= $board->content . "\r\n";
+        $s .= $board->price . " руб.\r\n";
+        return response($s)->header('Content-Type', 'text/plain');
+    }
 }
