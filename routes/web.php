@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/board', [BoardConrtroller::class, 'index']);
-Route::get('/board/{board}', [BoardConrtroller::class, 'detail']);
+Route::get('/board', [BoardConrtroller::class, 'index'])->name('index');
+Route::get('/board/{board}', [BoardConrtroller::class, 'detail'])->name('detail');
