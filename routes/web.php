@@ -19,3 +19,9 @@ Route::get('/', function () {
 
 Route::get('/board', [BoardConrtroller::class, 'index'])->name('index');
 Route::get('/board/{board}', [BoardConrtroller::class, 'detail'])->name('detail');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
