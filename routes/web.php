@@ -27,9 +27,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/create', [HomeController::class, 'create'])->name('board.create');
 Route::post('/home', [HomeController::class, 'store'])->name('board.store');
-Route::get('/home/{board}/edit', [HomeController::class, 'edit'])->name('board.edit');
-Route::patch('/home/{board}', [HomeController::class, 'update'])->name('board.update');
-Route::get('/home/{board}', [HomeController::class, 'delete'])->name('board.delete');
-Route::delete('/home/{board}', [HomeController::class, 'destroy'])->name('board.destroy');
+Route::get('/home/{board}/edit', [HomeController::class, 'edit'])->name('board.edit')->middleware('can:update,board');
+Route::patch('/home/{board}', [HomeController::class, 'update'])->name('board.update')->middleware('can:update,board');
+Route::get('/home/{board}', [HomeController::class, 'delete'])->name('board.delete')->middleware('can:destroy,board');
+Route::delete('/home/{board}', [HomeController::class, 'destroy'])->name('board.destroy')->middleware('can:destroy,board');
 
 
