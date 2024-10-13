@@ -41,9 +41,9 @@ class HomeController extends Controller
     public function store(Request $request){
         $validated = $request->validate(self::BOARD_VALIDATOR);
         Auth::user()->boards()->create([
-            'title' => $validated->title,
-            'content' => $validated->content,
-            'price' => $validated->price]);
+            'title' => $validated['title'],
+            'content' => $validated['content'],
+            'price' => $validated['price']]);
         return redirect()->route('home');
     }
 
@@ -54,9 +54,9 @@ class HomeController extends Controller
     public function update(Request $request, Board $board){
         $validated = $request->validate(self::BOARD_VALIDATOR);
         $board->fill([
-            'title' => $validated->title,
-            'content' => $validated->content,
-            'price' => $validated->price]);
+            'title' => $validated['title'],
+            'content' => $validated['content'],
+            'price' => $validated['price']]);
         $board->save();
         return redirect()->route('home');
     }
